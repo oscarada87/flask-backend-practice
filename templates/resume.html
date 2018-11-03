@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/resume.css') }}">
+    <title>個人履歷</title>
+  </head>
+  <body>
+    <div class="left">
+      <div class="left-top">
+        <img class="profile-picture" src="{{ url_for('static',filename='image/cat.jpg') }}" alt="profile-picture">
+      </div>
+      <div class="left-mid">
+        <h3>Profile</h3>
+        <div class="left-mid-left">
+          <ul>
+            <li>Name</li>
+            <li>Birthday</li>
+            <li>Nationality</li>
+            <li>Language</li>
+          </ul>
+        </div>
+        <div class="left-mid-right">
+          <ul>
+            <li>Oscar Chiang</li>
+            <li>1998/02/06</li>
+            <li>Taiwan</li>
+            <li>Chinese,English</li>
+          </ul>
+        </div>
+      </div>
+      <div class="left-bottom">
+        <h3>Contact</h3>
+        <div class="left-bottom-left">
+          <ul>
+            <li>Email</li>
+            <li>Facebook</li>
+            <li>Line</li>
+            <li>Instagram</li>
+          </ul>
+        </div>
+        <div class="left-bottom-right">
+          <ul>
+            <li><a href="mailto:oscarada87@gmail.com"><i class="material-icons EMAIL-Icon">email</i></a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100000300378259"target="_blank"><i class="fa fa-facebook-square FB-Icon"></i></a></li>
+            <li><a href="http://line.me/ti/p/gitS0JhNQh"target="_blank"><img id="LINE-Icon" src="{{ url_for('static',filename='image/LINE_Icon.png') }}" alt="LINE-Icon"></a></li>
+            <li><a href="https://www.instagram.com/oscarada87/"target="_blank"><i class="fa fa-instagram IG-Icon"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="right-top">
+        <h3>Experience</h3>
+        <p>
+          <div class="arrow"></div>
+          <div class="arrowhide"></div>
+          <hr class="timeline">
+          <div class="devide circle1"></div>
+          <div class="devide circle2"></div>
+          <div class="devide circle3"></div>
+          <div class="devide circle4"></div>
+          <div class="devide circle5"></div>
+          <span class="year2016">2016夏</span>
+          <span class="eventodd WEGO">薇閣高中畢業</span>
+          <span class="eventeven CYCLE">單車環島</span>
+          <span class="eventodd NTUT">北科大電資學士班入學</span>
+          <span class="year2017">2017夏</span>
+          <span class="eventeven TGDF">TGDF志工</span>
+          <span class="eventodd FUTURE">TO BE CONTINUED...</span>
+        </p>
+      </div>
+      <div class="right-mid">
+        <h3>Skill</h3>
+        <div class="right-mid-left">
+          <ul>
+            <li>剪輯</li>
+            <li>程式</li>
+            <li>創意</li>
+            <li>行動力</li>
+          </ul>
+        </div>
+        <div class="right-mid-right">
+          <div class="container">
+            <div class="skills edit">15%</div>
+          </div>
+          <div class="container">
+            <div class="skills programming">45%</div>
+          </div>
+          <div class="container">
+            <div class="skills creative">87%</div>
+          </div>
+          <div class="container">
+            <div class="skills action">55%</div>
+          </div>
+        </div>
+      </div>
+      <div class="right-bottom">
+        <h3>On Going</h3>
+      </div>
+    </div>
+  </body>
+</html>

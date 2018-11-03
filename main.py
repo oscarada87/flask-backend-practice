@@ -21,15 +21,7 @@ def birthday():
 
 @app.route('/')
 def index():
-    text = """歡迎光臨!! \n
-              遊戲玩法: \n
-              1. 在網址列後輸入各種英文單字即可切換到另一個頁面\n
-              EX: https://flask-practice-crawler.herokuapp.com/test \n
-              2. 某些頁面需要密碼才會提供獎勵，密碼測試方式請在網址後面加上 "key='你的密碼'" \n
-                 因為沒時間寫前端，所以就將就一點吧 \n
-              EX: https://flask-practice-crawler.herokuapp.com/test?key=簡子融  \n               
-    """
-    return text
+    return render_template('home.html')
 
 @app.route('/EasterEgg')
 def EasterEgg():
@@ -41,3 +33,6 @@ def test():
 
 if __name__ == '__main__':
     app.run()
+
+# https://www.youtube.com/watch?v=AortXsrBjtY&feature=youtu.be&ab_channel=%E9%BB%83%E7%85%9C%E9%A8%B0
+# 生日影片連結

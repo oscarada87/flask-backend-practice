@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>QQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div style="text-align:center;">
+        <div>
+            <img style="text-align:center;"src="{{ url_for('static',filename='image/friend/heart.jpg') }}" alt="友誼的小船說翻就翻">
+            <h1 style="text-align:center;">5秒後回到上一頁</h1>
+        </div>
+    </div>
+    
+    <script>
+        window.setTimeout(function () {
+            // Move to a new location or you can do something else
+            window.location.href = "https://flask-practice-crawler.herokuapp.com/EasterEgg";
+        }, 5000);
+    </script>
+</body>
+
+</html>

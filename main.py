@@ -25,7 +25,26 @@ def index():
 
 @app.route('/EasterEgg')
 def EasterEgg():
-    return render_template('gallary.html')
+    try:
+        answer = request.args['key']
+        answerList = ["forever", "infinity"]
+        try:
+            answer = int(answer)
+            print(answer)
+            if answer >= 30:
+                return render_template('redirect/gallary_redirect.html')
+            elif answer >= 10:
+                return render_template('redirect/gallary_redirect1.html')
+            else:
+                print("else")
+                return render_template('redirect/gallary_redirect2.html')
+        except:               
+            if answer.lower() in answerList:
+                return "https://www.youtube.com/watch?v=AortXsrBjtY&feature=youtu.be&ab_channel=%E9%BB%83%E7%85%9C%E9%A8%B0"
+            else:
+                return render_template('redirect/gallary_redirect2.html')
+    except:
+        return render_template('gallary.html') 
 
 @app.route('/test')
 def test():

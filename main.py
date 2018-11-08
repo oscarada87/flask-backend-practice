@@ -54,7 +54,7 @@ def game():
     try:
         answer = request.args['key']
         if answer == "9487":
-            return "resume"
+            return "下個關鍵字是 resume"
         else:
             return render_template('redirect/game_redirect.html')
     except:   

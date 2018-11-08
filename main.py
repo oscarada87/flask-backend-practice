@@ -31,8 +31,20 @@ def EasterEgg():
 def test():
     return render_template('resume.html')
 
+@app.route('/friend')
+def friend():
+    try:
+        answer = int(request.args['key'])
+        if answer == 116:
+            return "下個關鍵字是 EasterEgg"
+        else:
+            return render_template('redirect/friend_redirect.html')
+    except:
+        return render_template('friend_gallary.html')
+
 if __name__ == '__main__':
     app.run()
 
 # https://www.youtube.com/watch?v=AortXsrBjtY&feature=youtu.be&ab_channel=%E9%BB%83%E7%85%9C%E9%A8%B0
 # 生日影片連結
+# 5/24 3/9 2/28 2/6 11/8 3/15

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/game.css') }}">
+
+    <title>Gaming</title>
+  </head>
+  <body>
+    <h1>AABB</h1>
+    <div class="container numberDisplay">
+      <div id="display0" class="displayRow">-</div>
+      <div id="display1" class="displayRow">-</div>
+      <div id="display2" class="displayRow">-</div>
+      <div id="display3" class="displayRow">-</div>
+    </div>
+    <div class="numberInputColumn">
+      <div class="container numberInputRow">
+        <button type="button" class="btn btn-primary inputNumberBtn">1</button>
+        <button type="button" class="btn btn-primary inputNumberBtn">2</button>
+        <button type="button" class="btn btn-primary inputNumberBtn">3</button>
+      </div>
+      <div class="container numberInputRow">
+        <button type="button" class="btn btn-primary inputNumberBtn">4</button>
+        <button type="button" class="btn btn-primary inputNumberBtn">5</button>
+        <button type="button" class="btn btn-primary inputNumberBtn">6</button>
+      </div>
+      <div class="container numberInputRow">
+        <button type="button" class="btn btn-primary inputNumberBtn">7</button>
+        <button type="button" class="btn btn-primary inputNumberBtn">8</button>
+        <button type="button" class="btn btn-primary inputNumberBtn">9</button>
+      </div>
+      <div class="container numberInputRow">
+        <button type="button" class="btn btn-primary inputNumberBtn zeroBtn">0</button>
+      </div>
+    </div>
+    <div class="container submit">
+      <button type="button" class="btn btn-outline-dark deleteBtn">清除</button>
+      <button type="button" class="btn btn-outline-dark submitBtn">送出</button>
+    </div>
+    <hr>
+    <div class="resultDisplay">
+      <div class="number">
+        <ol id="numberHistory">
+        </ol>
+      </div>
+      <div class="hint">
+        <ul id="hintList">
+        </ul>
+      </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static',filename='js/game.js') }}"></script>
+  </body>
+
+</html>

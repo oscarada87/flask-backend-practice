@@ -7,23 +7,11 @@ import json
 app = Flask(__name__)
 app.config.from_object(DevConfig)
 # 路由和處理函式配對
-@app.route('/153')
-def birthday():
-    if request.method == 'GET':
-        try:
-            test = IDCrawler(request.args['keyword'])
-            test.Start()
-            news = test.GetNews()
-            return str(news)
-        except:
-            text = "答案錯誤!!!"
-            return text
-
 @app.route('/')
 def index():
     return render_template('home.html')
 
-@app.route('/EasterEgg')
+@app.route('/153')
 def EasterEgg():
     try:
         answer = request.args['key']
@@ -46,7 +34,7 @@ def EasterEgg():
     except:
         return render_template('gallary.html') 
 
-@app.route('/test')
+@app.route('/resume')
 def test():
     return render_template('resume.html')
 
@@ -54,16 +42,27 @@ def test():
 def friend():
     try:
         answer = int(request.args['key'])
-        if answer == 116:
-            return "下個關鍵字是 EasterEgg"
+        if answer == 136:
+            return "下個關鍵字是 153"
         else:
             return render_template('redirect/friend_redirect.html')
     except:
         return render_template('friend_gallary.html')
+
+@app.route('/game')
+def game():
+    try:
+        answer = request.args['key']
+        if answer == "9487":
+            return "resume"
+        else:
+            return render_template('redirect/game_redirect.html')
+    except:   
+        return render_template('game.html')
 
 if __name__ == '__main__':
     app.run()
 
 # https://www.youtube.com/watch?v=AortXsrBjtY&feature=youtu.be&ab_channel=%E9%BB%83%E7%85%9C%E9%A8%B0
 # 生日影片連結
-# 5/24 3/9 2/28 2/6 11/8 3/15
+# 5/24 3/9 2/28 2/6 11/8 3/15 2/18

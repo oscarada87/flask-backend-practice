@@ -16,7 +16,7 @@ $(function() {
 });
 
 function hint(){
-  var msg = "請把所有照片中出現的人的生日的月份和日期相加就是這頁的key";
+  var msg = "請把所有照片中出現的人的生日的月份和日期相加就是這頁的 key";
   alert(msg);
 }
 

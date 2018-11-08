@@ -11,7 +11,8 @@
 <body>
     <div style="text-align:center;">
         <div>
-            <img style="text-align:center;"src="{{ url_for('static',filename='image/friend/addoil.jpg') }}" alt="友誼的小船說翻就翻">
+            <h1 style="text-align:center;">答錯了!重玩吧!</h1>
+            <img style="text-align:center;"src="{{ url_for('static',filename='image/game.jpg') }}" alt="友誼的小船說翻就翻">
             <h1 style="text-align:center;">5秒後回到上一頁</h1>
         </div>
     </div>
@@ -19,7 +20,7 @@
     <script>
         window.setTimeout(function () {
             // Move to a new location or you can do something else
-            window.location.href = "https://flask-practice-crawler.herokuapp.com/153";
+            window.location.href = "https://flask-practice-crawler.herokuapp.com/game";
         }, 5000);
     </script>
 </body>

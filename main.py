@@ -42,7 +42,7 @@ def test():
 def friend():
     try:
         answer = int(request.args['key'])
-        if answer == 136:
+        if answer == 198:
             return "下個關鍵字是 153"
         else:
             return render_template('redirect/friend_redirect.html')
@@ -65,4 +65,4 @@ if __name__ == '__main__':
 
 # https://www.youtube.com/watch?v=AortXsrBjtY&feature=youtu.be&ab_channel=%E9%BB%83%E7%85%9C%E9%A8%B0
 # 生日影片連結
-# 5/24 3/9 2/28 2/6 11/8 3/15 2/18
+# 5/24 3/9 2/28 2/6 11/8 3/15 2/18 8/31 11/12

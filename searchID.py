@@ -43,7 +43,7 @@ class IDCrawler(Crawler):
         self.keyUrl = "https://www.inside.com.tw/page/"
 
     def GetNewsUrls(self):
-        for i in range (1, 3):
+        for i in range (1, 2):
             res = requests.get(self.keyUrl + str(i) + "?s=" + self.keyWord)
             soup = BeautifulSoup(res.text, 'html.parser')
             for link in soup.findAll('h3',class_='post_title'):

@@ -1,6 +1,9 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, send_file
 from config import DevConfig
 from searchID import IDCrawler
+from searchET import ETCrawler
+from jiebacut import jiebacut
+from wordcloud import WordCloud ,ImageColorGenerator
 import json
 
 # 初始化 Flask 類別成為 instance
@@ -59,6 +62,25 @@ def game():
             return render_template('redirect/game_redirect.html')
     except:   
         return render_template('game.html')
+
+@app.route('/test')
+def coding365():
+    news = []
+    crawlerList = []
+    try:
+        keyword = request.args['key']
+        crawlerList.append(IDCrawler(keyword))
+        crawlerList.append(ETCrawler(keyword))
+    except:
+        return "Coding365測試用"
+
+    for item in crawlerList:
+        item.Start()
+        news.extend(item.GetNews())    
+    picture = jiebacut(news)
+    picture.make()
+    return send_file('test.png')
+
 
 if __name__ == '__main__':
     app.run()

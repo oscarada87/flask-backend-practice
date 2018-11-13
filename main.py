@@ -10,13 +10,6 @@ import json
 app = Flask(__name__)
 app.config.from_object(DevConfig)
 
-import sys, os
-from os.path import dirname
-sys.path.append(os.path.dirname(os.path.abspath(__file__))+'/jieba')
-
-import jieba
-jieba.tmp_dir = os.path.dirname(os.path.abspath(__file__)) + '/tmp'
-
 # 路由和處理函式配對
 @app.route('/')
 def index():

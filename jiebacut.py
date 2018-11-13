@@ -1,6 +1,4 @@
 import sys, os
-from os.path import dirname
-sys.path.append(os.path.dirname(os.path.abspath(__file__))+'/jieba')
 import jieba
 jieba.tmp_dir = os.path.dirname(os.path.abspath(__file__)) + '/tmp'
 import jieba.analyse
@@ -16,6 +14,7 @@ with open('stopWords.txt', 'r', encoding='UTF-8') as file:
         data = data.strip()
         stopwords.append(data)
 
+print(str(jieba.tmp_dir))
 class jiebacut:
     def __init__(self, content):
         self.content = content

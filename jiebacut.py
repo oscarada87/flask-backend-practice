@@ -1,4 +1,8 @@
+import sys, os
+from os.path import dirname
+sys.path.append(os.path.dirname(os.path.abspath(__file__))+'/jieba')
 import jieba
+jieba.tmp_dir = os.path.dirname(os.path.abspath(__file__)) + '/tmp'
 import jieba.analyse
 from wordcloud import WordCloud ,ImageColorGenerator
 from scipy.misc import imread  # 處理圖的函数

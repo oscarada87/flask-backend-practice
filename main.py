@@ -6,6 +6,14 @@ from jiebacut import jiebacut
 from wordcloud import WordCloud ,ImageColorGenerator
 import json
 
+from rq import Queue
+from worker import conn
+
+q = Queue(connection=conn)
+from utils import count_words_at_url
+
+result = q.enqueue(count_words_at_url, 'https://flask-practice-crawler.herokuapp.com/test')
+
 # 初始化 Flask 類別成為 instance
 app = Flask(__name__)
 app.config.from_object(DevConfig)

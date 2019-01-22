@@ -98,7 +98,6 @@ def game():
     except:   
         return render_template('game.html')
 
-@socketio.on('img')
 @app.route('/test', methods=['POST','OPTION'])
 def coding365():
     news = []
@@ -113,8 +112,7 @@ def coding365():
     picture = jiebacut(news)
     picture.make()
     url = upload()
-    socketio.emit('img', {'url': url})
-    return "處理中"
+    return url
 
 @socketio.on('img')
 def test_message(message):
@@ -131,7 +129,7 @@ def test_disconnect():
 
 
 if __name__ == '__main__':
-    socketio.run(app)
+    app.run()
 
 # https://www.youtube.com/watch?v=AortXsrBjtY&feature=youtu.be&ab_channel=%E9%BB%83%E7%85%9C%E9%A8%B0
 # 生日影片連結

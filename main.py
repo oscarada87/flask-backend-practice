@@ -4,19 +4,45 @@ from searchID import IDCrawler
 from searchET import ETCrawler
 from jiebacut import jiebacut
 from wordcloud import WordCloud ,ImageColorGenerator
+from flask_cors import CORS
 import json
+from flask_socketio import SocketIO, send, emit
+import requests
 
-from rq import Queue
-from worker import conn
+from base64 import b64encode
 
-q = Queue(connection=conn)
-from utils import count_words_at_url
+# from rq import Queue
+# from worker import conn
 
-result = q.enqueue(count_words_at_url, 'https://flask-practice-crawler.herokuapp.com/test')
+# q = Queue(connection=conn)
+# from utils import count_words_at_url
+
+# result = q.enqueue(count_words_at_url, 'https://flask-practice-crawler.herokuapp.com/test')
 
 # 初始化 Flask 類別成為 instance
 app = Flask(__name__)
 app.config.from_object(DevConfig)
+app.config['SECRET_KEY'] = 'testtest'
+CORS(app, supports_credentials=True)
+
+socketio = SocketIO(app)
+
+def upload():
+    headers = {"Authorization": "Client-ID 5d3ce8262b25794"}
+    url = "https://api.imgur.com/3/image"
+    j1 = requests.post(
+        url, 
+        headers = headers,
+        data = {
+            'image': b64encode(open('test.png', 'rb').read()),
+            'type': 'base64',
+            'name': 'test.png',
+            'title': 'WordCloud'
+        }
+    )
+    temp = str(j1.json()['data']['link'])
+    return temp
+
 
 # 路由和處理函式配對
 @app.route('/')
@@ -72,28 +98,44 @@ def game():
     except:   
         return render_template('game.html')
 
-@app.route('/test')
+@socketio.on('img')
+@app.route('/test', methods=['POST','OPTION'])
 def coding365():
     news = []
     crawlerList = []
-    try:
-        keyword = request.args['key']
-        crawlerList.append(IDCrawler(keyword))
-        crawlerList.append(ETCrawler(keyword))
-    except:
-        return "Coding365測試用"
+    keyword = request.get_json()['keyword']
+    crawlerList.append(IDCrawler(keyword))
+    crawlerList.append(ETCrawler(keyword))
 
     for item in crawlerList:
         item.Start()
         news.extend(item.GetNews())    
     picture = jiebacut(news)
     picture.make()
-    return send_file('test.png')
+    url = upload()
+    socketio.emit('img', {'url': url})
+    return "處理中"
+
+@socketio.on('img')
+def test_message(message):
+    url = upload()
+    emit('img', {'url': url})
+
+@socketio.on('connect')
+def test_connect():
+    emit('connect', {'data': 'Connected'})
+
+@socketio.on('disconnect')
+def test_disconnect():
+    print('Client disconnected')
 
 
 if __name__ == '__main__':
-    app.run()
+    socketio.run(app)
 
 # https://www.youtube.com/watch?v=AortXsrBjtY&feature=youtu.be&ab_channel=%E9%BB%83%E7%85%9C%E9%A8%B0
 # 生日影片連結
 # 5/24 3/9 2/28 2/6 11/8 3/15 2/18 8/31 11/12
+# client id: 5d3ce8262b25794
+# client token: 00227efd77fe993107f84d36f17e7559641f2294
+# token: b3004ebdddfd025c7830e2a31792930545bde3cd

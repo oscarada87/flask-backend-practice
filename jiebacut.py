@@ -14,7 +14,6 @@ with open('stopWords.txt', 'r', encoding='UTF-8') as file:
         data = data.strip()
         stopwords.append(data)
 
-print(str(jieba.tmp_dir))
 class jiebacut:
     def __init__(self, content):
         self.content = content

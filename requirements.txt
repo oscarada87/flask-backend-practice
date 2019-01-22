@@ -44,3 +44,4 @@ Werkzeug==0.14.1
 wincertstore==0.2
 wordcloud==1.5.0
 wrapt==1.10.11
+gunicorn==19.9.0

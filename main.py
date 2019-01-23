@@ -134,6 +134,3 @@ if __name__ == '__main__':
 # https://www.youtube.com/watch?v=AortXsrBjtY&feature=youtu.be&ab_channel=%E9%BB%83%E7%85%9C%E9%A8%B0
 # 生日影片連結
 # 5/24 3/9 2/28 2/6 11/8 3/15 2/18 8/31 11/12
-# client id: 5d3ce8262b25794
-# client token: 00227efd77fe993107f84d36f17e7559641f2294
-# token: b3004ebdddfd025c7830e2a31792930545bde3cd

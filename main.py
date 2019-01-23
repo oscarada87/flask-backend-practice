@@ -6,7 +6,7 @@ from jiebacut import jiebacut
 from wordcloud import WordCloud ,ImageColorGenerator
 from flask_cors import CORS
 import json
-from flask_socketio import SocketIO, send, emit
+# from flask_socketio import SocketIO, send, emit
 import requests
 
 from base64 import b64encode
@@ -25,7 +25,7 @@ app.config.from_object(DevConfig)
 app.config['SECRET_KEY'] = 'testtest'
 CORS(app, supports_credentials=True)
 
-socketio = SocketIO(app)
+# socketio = SocketIO(app)
 
 def upload():
     headers = {"Authorization": "Client-ID 5d3ce8262b25794"}
@@ -114,18 +114,18 @@ def coding365():
     url = upload()
     return url
 
-@socketio.on('img')
-def test_message(message):
-    url = upload()
-    emit('img', {'url': url})
+# @socketio.on('img')
+# def test_message(message):
+#     url = upload()
+#     emit('img', {'url': url})
 
-@socketio.on('connect')
-def test_connect():
-    emit('connect', {'data': 'Connected'})
+# @socketio.on('connect')
+# def test_connect():
+#     emit('connect', {'data': 'Connected'})
 
-@socketio.on('disconnect')
-def test_disconnect():
-    print('Client disconnected')
+# @socketio.on('disconnect')
+# def test_disconnect():
+#     print('Client disconnected')
 
 
 if __name__ == '__main__':

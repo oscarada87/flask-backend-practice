@@ -47,7 +47,7 @@ class IDCrawler(Crawler):
             res = requests.get(self.keyUrl + str(i) + "?s=" + self.keyWord)
             soup = BeautifulSoup(res.text, 'html.parser')
             for link in soup.findAll('h3',class_='post_title'):
-                self.urlList.append(link.find('a')['href'])
+                self.urlList.append("https://www.inside.com.tw/" + link.find('a')['href'])
         # pprint(self.urlList)
 
     def GetNewsSoup(self, link):
@@ -77,19 +77,20 @@ class IDCrawler(Crawler):
             try:
                 self.GetNewsSoup(link)
                 self.GetTitle()
-                print("---第" + str(count) + "則新聞抓取標題---")
+                # print("---第" + str(count) + "則新聞抓取標題---")
                 self.GetTime()
-                print("---第" + str(count) + "則新聞抓取時間---")
+                # print("---第" + str(count) + "則新聞抓取時間---")
                 self.GetContent()
-                print("---第" + str(count) + "則新聞抓取內文---")
+                # print("---第" + str(count) + "則新聞抓取內文---")
                 self.GetResource()
-                print("---第" + str(count) + "則新聞抓取來源---")
+                # print("---第" + str(count) + "則新聞抓取來源---")
                 self.news.append(self.singleNews)
                 print("第" + str(count) + "則新聞完成!!")
                 self.singleNews = {'title':'', 'time':'', 'content':'', 'resource':'', 'url':''}
                 count = count + 1
             except:
                 print("ERROR---第" + str(count) + "則新聞失敗!!")
+                count = count + 1
 
     def Start(self):
         self.SubstitudeFunction()

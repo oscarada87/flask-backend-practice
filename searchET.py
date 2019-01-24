@@ -11,7 +11,7 @@ class ETCrawler:
         self.news = []
         self.singleNews = {'title':'', 'time':'', 'content':'', 'resource':'', 'url':''}
     def newsurl(self):
-        for i in range(1,2):
+        for i in range(1,5):
             res = requests.get('https://www.ettoday.net/news_search/doSearch.php?keywords={}&idx=1&page='.format(self.keyWord)+str(i))
             soup = BeautifulSoup(res.text, 'html.parser')
             for link in soup.findAll('div',class_='box_1'):

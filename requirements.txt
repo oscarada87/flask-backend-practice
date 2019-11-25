@@ -29,7 +29,7 @@ public==2.0.1
 pylint==2.1.1
 pyparsing==2.3.1
 python-dateutil==2.7.5
-python-engineio==3.2.3
+python-engineio==3.8.2.post1
 python-socketio==3.1.1
 query-string==1.0.2
 redis==2.10.6
